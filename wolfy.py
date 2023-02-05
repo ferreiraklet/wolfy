@@ -85,7 +85,7 @@ class Wolfy:
         input()
         subprocess.call(f'mv "{exename}.exe" "{exename}-not-signed.exe";osslsigncode sign -certs certificate/cert.pem -key certificate/cert.key -n "{exename}" -i https://microsoft.com/ -in "{exename}-not-signed.exe" -out "{exename}.exe";rm "{exename}-not-signed.exe"', shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-        print(f"[INFO] - DONE! Your .exe is build/{exename}.exe")
+        print(f"[INFO] - DONE! Your .exe is {exename}.exe")
 
 if __name__ == '__main__':
     c = Wolfy()
