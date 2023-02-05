@@ -12,7 +12,7 @@ main() {
     chmod +x wolfy.py
     wget https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe
     wine python-3.7.9-amd64.exe
-    wine "$(which python.exe)" -m pip install pycryptodome pyinstaller tinyaes colorama Cython
+    wine "$(find ~/.wine/drive_c/ -type f -name python.exe | tail -n 1)" -m pip install pycryptodome pyinstaller tinyaes colorama Cython
     printf '\n\033[0;32m[+] \033[0;37mInstallation completed!'
 }
 
