@@ -56,7 +56,7 @@ class Wolfy:
         exename = self.exename
         exename = exename.capitalize()
         
-        if self.icon != "":
+        if self.icon is not None:
             icon = self.icon
         else:
             icon = "cmd"
@@ -89,11 +89,13 @@ class Wolfy:
         f_build.close()
 
         print("[] - Run the following command and type enter when done.")
+        print("Linux:")
         print(f'sudo wine "$(find ~/.wine/drive_c/ -type f -name pyinstaller.exe)" --onefile --noconsole --distpath {os.getcwd()}/ -i {os.getcwd()}/icons/{icon}.ico {os.getcwd()}/build/{exename}.py --key={key}')
-        #input()
+        print("Windows:")
+        print(f'pyinstaller --onefile --noconsole --distpath {os.getcwd()}\\ -i {os.getcwd()}\\icons\\{icon}.ico {os.getcwd()}\\build\\{exename}.py --key={key}')
         #subprocess.call(f'mv "{exename}.exe" "{exename}-not-signed.exe";osslsigncode sign -certs certificate/cert.pem -key certificate/cert.key -n "{exename}" -i https://microsoft.com/ -in "{exename}-not-signed.exe" -out "{exename}.exe";rm "{exename}-not-signed.exe"', shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         #print(f'mv "{exename}.exe" "{exename}-not-signed.exe";osslsigncode sign -certs certificate/cert.pem -key certificate/cert.key -n "{exename}" -i https://microsoft.com/ -in "{exename}-not-signed.exe" -out "{exename}.exe";rm "{exename}-not-signed.exe"')
-        print(f"[INFO] - DONE! Your .exe is {exename}.exe")
+        #print(f"[INFO] - DONE! Your .exe is {exename}.exe")
 
 if __name__ == '__main__':
     c = Wolfy()
