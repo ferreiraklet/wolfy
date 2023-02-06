@@ -71,7 +71,7 @@ class Wolfy:
 
         shellcode_payload = open(self.shellcode_file, "rb").read()
         shellcode_payload = bytes.hex(shellcode_payload)
-        print(shellcode_payload)
+        #print(shellcode_payload)
         print("[INFO] - Replacing shellcode")
         # replacing shellcode 
         f_xpl_data = open("templates/xpl.py","r").read()
