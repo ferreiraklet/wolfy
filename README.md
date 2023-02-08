@@ -9,6 +9,7 @@
 * Custom shellcodes with metasploit
 * AES Encryption
 * Can be used in Linux and Windows
+* Can be used with covenant
 
 # Usage
 
